@@ -9,19 +9,21 @@ const populateItemsDiv = async () => {
   const allItems = await db.items.reverse().toArray()
 
   itemsDiv.innerHTML = allItems.map(item => `
-    <div class="item ${item.isPurchased && 'strike'}">
+    <div class="item ${item.isPurchased && 'purchased'}">
       <input
         type="checkbox"
+        class="checkbox"
         onchange="toggleItemStatus(event, ${item.id})"
         ${item.isPurchased && 'checked'}
       />
-      <p>${item.name}</p>
-      <p>$${item.price}</p>
-      <p>${item.quantity}</p>
+      
+      <div class="itemInfo">
+        <p>${item.name}</p>
+        <p>$${item.price} x ${item.quantity}</p>
+      </div>
+     
       <button onclick="removeItem(${item.id})" class="deleteButton">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-        <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
-      </svg>
+        X
       </button>
     </div>
   `).join('')
@@ -29,7 +31,7 @@ const populateItemsDiv = async () => {
   const arrayOfPrices = allItems.map(item => item.price * item.quantity)
   const totalPrice = arrayOfPrices.reduce((a, b) => a + b, 0)
 
-  totalPriceDiv.innerText = 'Total price: ' + totalPrice
+  totalPriceDiv.innerText = 'Total price: $' + totalPrice
 }
 
 window.onload = populateItemsDiv
