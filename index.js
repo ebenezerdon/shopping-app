@@ -1,5 +1,5 @@
 const db = new Dexie('TodoApp')
-db.version(2).stores({ items: '++id,name,price,isPurchased' })
+db.version(3).stores({ items: '++id,name,price,isPurchased' })
 
 const itemForm = document.getElementById('itemForm')
 const itemsDiv = document.getElementById('itemsDiv')
