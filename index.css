@@ -1,0 +1,48 @@
+* {
+  margin: unset;
+  padding: unset;
+}
+
+nav {
+  background: #00805a;
+  height: 3rem;
+  line-height: 3rem;
+  color: white;
+  padding-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+.container {
+  padding: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+#itemsDiv {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+
+.deleteButton {
+  width: 2rem;
+  background: unset;
+  border: unset;
+  transform: scale(0.7);
+}
+
+.deleteButton:active {
+  margin-top: 3px;
+}
+
+.strike {
+  text-decoration: line-through;
+}
