@@ -1,6 +1,6 @@
 {
   "name": "Shopping App",
-  "short_name": "ShopList",
+  "short_name": "Shopping App",
   "icons": [
     {
       "src": "./assets/icon-192.png",
